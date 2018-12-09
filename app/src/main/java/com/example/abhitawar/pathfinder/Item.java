@@ -1,6 +1,8 @@
 package com.example.abhitawar.pathfinder;
 
-public class Item
+import java.io.Serializable;
+
+public class Item implements Serializable
 {
 
     private String brand;
@@ -24,6 +26,10 @@ public class Item
         this.location = location;
     }
 
+    public String toString()
+    {
+        return getBrand() + " "+ getName();
+    }
     /***************** Setters and getters *******************/
 
     public String getBrand() {
