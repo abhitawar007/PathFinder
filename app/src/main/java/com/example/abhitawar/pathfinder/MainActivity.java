@@ -1,8 +1,10 @@
 package com.example.abhitawar.pathfinder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,20 +23,10 @@ public class MainActivity extends AppCompatActivity {
     {
         try
         {
-            System.out.println("@@@ allItems button clicked!");
-            InputStream ip = getResources().openRawResource(R.raw.entries);
-            Parser parser = new Parser(ip);
-            List<Item> items = parser.read();
-            for (Item item: items)
-            {
-                System.out.println(item.getBrand());
-                System.out.println(item.getName());
-                System.out.println(item.getId());
-                System.out.println(item.getPrice());
-                System.out.println(item.getStore());
-                System.out.println(item.getLocation());
-                System.out.println("------------");
-            }
+            System.out.println("allItems button clicked!");
+
+            Intent myIntent = new Intent(v.getContext(), ListItems.class);
+            startActivityForResult(myIntent, 0);
         }
         catch (RuntimeException ex)
         {
